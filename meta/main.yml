@@ -1,0 +1,23 @@
+galaxy_info:
+  author: liam somerville
+  description: Installs pip3 and pipenv
+  company: N/A
+
+  license: BSD 
+
+  min_ansible_version: 1.3
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+    - 25
+  - name: Ubuntu
+    versions:
+    - all
+
+  galaxy_tags:
+    - python
+    - system
+
+dependencies: []
