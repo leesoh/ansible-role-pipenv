@@ -8,10 +8,10 @@
     state: latest
   
 - name: Install pipenv
+  become: true
   pip:
     name: pipenv
     executable: pip3
-    extra_args: --user
 
 - name: Check path for $HOME/.local/lib (Ubuntu)
   command: "awk /.local/ {{ ansible_env.HOME }}/.profile"
