@@ -9,6 +9,23 @@
   
 - name: Install pipenv
   pip:
-    executable: pip3
     name: pipenv
+    executable: pip3
     extra_args: --user
+
+- name: Check path for $HOME/.local/lib (Ubuntu)
+  command: "awk /.local/ {{ ansible_env.HOME }}/.profile"
+  register: check_path
+  changed_when: False
+
+- name: Update path (Ubuntu)
+  when: (ansible_lsb['description'] == "Ubuntu 17.10") and
+        (check_path.stdout is not undefined)
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    block: |
+      if [ -d "$HOME/.local/bin" ] ; then
+          PATH="$HOME/.local/bin:$PATH"
+      fi
+
+
