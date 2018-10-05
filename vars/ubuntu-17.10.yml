@@ -1,0 +1,5 @@
+---
+pipenv_packages:
+  - python3-pip
+
+is_ubuntu_1710: ""
