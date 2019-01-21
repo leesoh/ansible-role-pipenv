@@ -17,6 +17,7 @@
   package:
     name: "{{ pipenv_packages }}"
     state: latest
+    update_cache: yes
 
 - name: Install pipenv
   become: true
